@@ -15,7 +15,7 @@ on:
       - '*'          # Run the workflow for all pull requests
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
