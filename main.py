@@ -12,11 +12,12 @@ def convert_pdf_to_png(pdf_path, output_directory):
     i = 0
     for page in doc:
         i += 1
-        pix = page.get_pixmap()
+        pix = page.get_pixmap(dpi=400)
         output = output_directory + "/output_" + str(i) + ".png"
         pix.save(output)
-
         print(f"Page {i} saved to {output}")
+
+    doc.close()
 
 if __name__ == "__main__":
     root = tk.Tk()
