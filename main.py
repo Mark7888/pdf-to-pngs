@@ -1,10 +1,13 @@
+import os
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
 import fitz  # PyMuPDF
 from PIL import Image
 
-import os
+# fix blurry text
+from ctypes import windll
+windll.shcore.SetProcessDpiAwareness(1)
 
 
 def convert_pdf_to_png(pdf_path, output_directory):
