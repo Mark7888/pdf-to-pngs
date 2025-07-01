@@ -1,13 +1,18 @@
 import os
+import platform
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
 import fitz  # PyMuPDF
 from PIL import Image
 
-# fix blurry text
-from ctypes import windll
-windll.shcore.SetProcessDpiAwareness(1)
+# fix blurry text on Windows only
+if platform.system() == "Windows":
+    try:
+        from ctypes import windll
+        windll.shcore.SetProcessDpiAwareness(1)
+    except:
+        pass  # Ignore if it fails
 
 
 def convert_pdf_to_png(pdf_path, output_directory):
